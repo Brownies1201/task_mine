@@ -23,8 +23,10 @@
 		<script language='javascript'>
          $(document).ready(function(){
 			$('.ui.dropdown').dropdown();
-			$( ".task_table_link" ).click(function() {
-				$('.task_table_link_content').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
+			$( ".task_table_tname" ).click(function() {
+				$('.task_table_link_content')
+				.sidebar('setting', 'transition', 'overlay')
+				.sidebar('toggle');
 			});
 			$( ".task_add_btn" ).click(function() {
 				$( ".task_add_btn" ).removeClass( "orange" );
@@ -40,6 +42,10 @@
 	            	.sidebar('toggle') ;
 	            }
             });
+            $( ".task_table_user, .task_table_link_user" ).click(function() {
+				 $('.ui.modal').modal('show');
+			});
+           
          });
 		</script>
 	</head>
@@ -51,7 +57,7 @@
 					<a class="item active">
 						任務榜
 					</a>
-					<a class="add_task_link item">
+					<a href="add_task.html"class="add_task_link item">
 						委託任務
 					</a>
 					<div class="item">
@@ -192,8 +198,8 @@
 							</thead>
 							<tbody>
 								<tr>
-									<td class="task_table_link"><a href="#">外帶50嵐</a></td>
-									<td class="task_table_link"><a href="#">Alex</a></td>
+									<td class="task_table_link task_table_tname"><a href="#">外帶50嵐</a></td>
+									<td class="task_table_link task_table_user"><a href="#">Alex</a></td>
 									<td class="task_table_text">1</td>
 									<td class="task_table_text">2016/7/24 14:00</td>
 									<td class="task_table_text"><i class="remove icon"></i></td>
@@ -230,41 +236,55 @@
 							<tfoot>
 							</tfoot>
 						</table>
-					</div>
-					<!--task add form-->
-					<div class="task_add_content">
-						<div class="home ui stackable grid">
-							<div class="ui two wide column">
+						<div class="ui modal">
+							<i class="close icon"></i>
+							<div class="header">
+								Alex
 							</div>
-							<div class="ui twelve wide column">
-								<div class="ui form">
-								  <div class="field">
-								    <label>*任務名稱</label>
-								    <input type="text" name="first-name" placeholder="外帶xxx">
-								  </div>
-								  <div class="field">
-								    <label>連絡地址</label>
-								    <input type="text" name="last-name" placeholder="台中市中興大學">
-								  </div>
-								  <div class="field">
-								    <label>連絡電話</label>
-								    <input type="text" name="last-name" placeholder="0956789101, 04-2233919">
-								  </div>
-								  <div class="field">
-								    <label>E-mail</label>
-								    <input type="text" name="last-name" placeholder="E-mail">
-								  </div>
-								  <div class="field">
-								    <label>補充資料</label>
-								    <textarea rows="4" placeholder="任務內容、報酬...等"></textarea>
-								  </div>
+							<div class="image content">
+								<div class="ui medium image">
+									<img src="img/29.jpg">
 								</div>
-								<br>
-								<button class="ui right floated orange button">委託任務</button>
+								<div class="description">
+									<div class="ui header">Alex的評價表</div>
+									<table class="task_table ui definition table">
+										<thead>
+											<tr>
+												<th class="task_table_text"><i class="star icon"></i></th>
+												<th class="task_table_text">一週之內</th>
+												<th class="task_table_text">一個月內</th>
+												<th class="task_table_text">半年之內</th>
+												<th class="task_table_text">全部紀錄</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="task_table_text">委託評價</td>
+												<td class="task_table_text">1</td>
+												<td class="task_table_text">0</td>
+												<td class="task_table_text">5</td>
+												<td class="task_table_text">12</td>
+											</tr>
+											<tr>
+												<td class="task_table_text">承接評價</td>
+												<td class="task_table_text">0</td>
+												<td class="task_table_text">0</td>
+												<td class="task_table_text">2</td>
+												<td class="task_table_text">2</td>
+											</tr>
+										</tbody>
+										<tfoot>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+							<div class="actions">
+								<div class="ui orange  right labeled icon button">
+									聊天室
+									<i class="comments icon"></i>
 								</div>
 							</div>
 						</div>
-						
 					</div>
 				<div>
 			</div>
