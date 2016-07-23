@@ -50,14 +50,18 @@
 				dateFormat: "dd-MMM-yyyy"
 			});
             $( ".task_accept_user" ).click(function() {
-				 $('.ui.modal').modal('show');
+				 $('.user_message').modal('show');
+			});
+			$( ".star_rating_btn" ).click(function() {
+				 $('.star_rating').modal('show');
 			});
 			$("#getting-started")
 			 .countdown("2016/07/24", function(event) {
 			    $(this).text(
 			      event.strftime('%D days %H:%M:%S')
 			    );
-			  });
+			 });
+			$('.ui.rating').rating();
          });
 		</script>
 	</head>
@@ -123,6 +127,7 @@
 								<th class="task_table_text">剩餘時間</th>
 								<th class="task_table_text">申請人數</th>
 								<th class="task_table_text">承接人</th>
+								<th class="task_table_text">評價</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -133,6 +138,11 @@
 								<td class="task_table_text"><div id="getting-started"></div></td>
 								<td class="task_table_text">1</td>
 								<td class="task_table_text"><a class="task_accept_user"href="#">Jimmy Wang</a></td>
+								<td class="task_table_text star_rating_td">
+									<button class="star_rating_btn circular ui orange icon button">
+										<i class="icon star"></i>
+									</button>
+								</td>
 							</tr>
 							
 						</tbody>
@@ -199,7 +209,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="ui modal">
+					<div class="user_message ui modal">
 						<i class="close icon"></i>
 						<div class="header">
 							Alex
@@ -245,6 +255,21 @@
 							<div class="ui orange  right labeled icon button">
 								聊天室
 								<i class="comments icon"></i>
+							</div>
+						</div>
+					</div>
+					<div class="star_rating ui small modal">
+						<i class="close icon"></i>
+						<div class="header">
+							你對委託人的評價
+							<div  class="star_rating_count">
+								<div class="ui massive star rating" data-max-rating="5"></div>
+							</div>
+						</div>
+						
+						<div class="actions">
+							<div class="star_rating_submit ui orange right button">
+								送出
 							</div>
 						</div>
 					</div>
