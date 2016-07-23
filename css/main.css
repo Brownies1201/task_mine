@@ -21,13 +21,11 @@ body{
     border-color: orange!important; 
     color: #FFF!important;
 }
-.task_menu_message{
-	visibility: hidden;
-}
 .task_table_content, .task_add_content{
 	padding-top: 20px;
 	padding-left: 20px;
 	padding-right: 20px;
+	height: 100vh;
 }
 .task_table .task_table_text{
 	text-align: center!important;

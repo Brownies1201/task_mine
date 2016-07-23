@@ -22,7 +22,6 @@
 		<script src='lib/semantic/components/dropdown.min.js'></script>
 		<script language='javascript'>
          $(document).ready(function(){
-            // $('.home_menu .ui.sidebar').sidebar('toggle');
 			$('.ui.dropdown').dropdown();
 			$( ".task_table_link" ).click(function() {
 				$('.task_table_link_content').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
@@ -34,14 +33,13 @@
 				$( ".task_menu_message" ).css( "visibility", "visible");
 			});
 
-			            $("#mbutton").on({
-			            	click: function(){
-				            	$('.ui.left.vertical.sidebar')
-				            	.sidebar('setting', 'transition', 'push')
-				            	.sidebar('toggle') ;
-				            }
-			            });
-
+            $("#mbutton").on({
+            	click: function(){
+	            	$('.ui.left.vertical.sidebar')
+	            	.sidebar('setting', 'transition', 'push')
+	            	.sidebar('toggle') ;
+	            }
+            });
          });
 		</script>
 	</head>
@@ -53,7 +51,7 @@
 					<a class="item active">
 						任務榜
 					</a>
-					<a class="item">
+					<a class="add_task_link item">
 						委託任務
 					</a>
 					<div class="item">
@@ -80,10 +78,12 @@
 		<!-- main content -->
 		<div class="pusher">
 			<i id='mbutton' class=" large yellow align justify icon"></i>
-			<div class="home ui stackable grid">
-				<div class="home_content ui two wide column"></div>		
-				<div class="home_content ui twelve wide column">					
+			<div class="home ui stackable grid container">
+				<div class="ui two wide column"></div>
+				<div class="home_content ui twelve wide column">
+					<!--task table-->				
 					<div class="task_table_content">
+						<!--task message-->		
 						<div class="task_table_link_content ui sidebar right vertical very wide menu">
 							<div class="task_table_link_inside">
 								<div class="ui stackable grid item">
@@ -151,6 +151,7 @@
 								</div>
 							</div>
 						</div>
+						<!--task table sequence-->	
 						<div class="ui compact selection dropdown">
 							<i class="dropdown icon"></i>
 							<div class="text">類型</div>
@@ -178,6 +179,7 @@
 								<div class="item">沒有</div>
 							</div>
 						</div>
+						<!--task table content-->	
 						<table class="task_table ui celled table">
 							<thead>
 								<tr>
@@ -229,6 +231,7 @@
 							</tfoot>
 						</table>
 					</div>
+					<!--task add form-->
 					<div class="task_add_content">
 						<div class="home ui stackable grid">
 							<div class="ui two wide column">
