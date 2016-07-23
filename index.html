@@ -28,7 +28,6 @@
 				$('.task_table_link_content').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
 			});
 			$( ".task_add_btn" ).click(function() {
-				console.log("test");
 				$( ".task_add_btn" ).removeClass( "orange" );
 				$( ".task_add_btn" ).addClass( "gray" );
 				$( ".task_add_btn" ).text( "申請中" );
@@ -44,8 +43,6 @@
 			            });
 
          });
-
-
 		</script>
 	</head>
 	<body>
@@ -84,9 +81,8 @@
 		<div class="pusher">
 			<i id='mbutton' class=" large yellow align justify icon"></i>
 			<div class="home ui stackable grid">
-		
-				<div class="home_content ui thirteen wide column">
-					
+				<div class="home_content ui two wide column"></div>		
+				<div class="home_content ui twelve wide column">					
 					<div class="task_table_content">
 						<div class="task_table_link_content ui sidebar right vertical very wide menu">
 							<div class="task_table_link_inside">

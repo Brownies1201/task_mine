@@ -50,11 +50,6 @@ body{
 .task_table_link_msg h4{
 	color: #999;
 }
-.task_table_msg_text{
-	text-align: justify;
-	text-justify:inter-ideograph;
-
-}
 .task_table_msg_box{
 	border-style: solid;
 	border-color: #DDD;
