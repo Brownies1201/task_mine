@@ -1,0 +1,255 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
+		<!--Library CSS-->
+		<link href='http://cdn.jsdelivr.net/semantic-ui/2.1.6/semantic.min.css' media='all' rel='stylesheet' type='text/css'/>
+		<!--Library Component CSS-->
+		<link href='lib/semantic/components/menu.min.css' media='all' rel='stylesheet' type='text/css'/>
+		<link href='lib/semantic/components/sidebar.min.css' media='all' rel='stylesheet' type='text/css'/>
+		<link href='lib/semantic/components/dropdown.min.css' media='all' rel='stylesheet' type='text/css'/>
+		<link rel="stylesheet" type="text/css" href="lib/DateTimePicker.css" />
+		<!--CSS-->
+		<link href='css/main.css' media='all' rel='stylesheet' type='text/css'/>
+		<!--Library Javascript-->
+		<script type="text/javascript" src="lib/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="lib/DateTimePicker.js"></script>
+		<script type="text/javascript" src="lib/jquery.countdown.min.js"></script>
+		<script src='http://cdn.jsdelivr.net/semantic-ui/2.1.6/semantic.min.js'></script>
+		<script src='lib/semantic/components/sidebar.min.js'></script>
+		<script src='lib/semantic/components/dropdown.min.js'></script>
+		<script language='javascript'>
+         $(document).ready(function(){
+			$('.ui.dropdown').dropdown();
+			$( ".task_table_tname" ).click(function() {
+				$('.task_table_link_content')
+				.sidebar('setting', 'transition', 'overlay')
+				.sidebar('toggle');
+			});
+			$( ".task_add_btn" ).click(function() {
+				$( ".task_add_btn" ).removeClass( "orange" );
+				$( ".task_add_btn" ).addClass( "gray" );
+				$( ".task_add_btn" ).text( "申請中" );
+				$( ".task_menu_message" ).css( "visibility", "visible");
+			});
+
+            $("#mbutton").on({
+            	click: function(){
+	            	$('.ui.left.vertical.sidebar')
+	            	.sidebar('setting', 'transition', 'push')
+	            	.sidebar('toggle') ;
+	            }
+            });
+            $("#dtBox").DateTimePicker(
+			{
+				dateFormat: "dd-MMM-yyyy"
+			});
+            $( ".task_accept_user" ).click(function() {
+				 $('.ui.modal').modal('show');
+			});
+			$("#getting-started")
+			 .countdown("2016/07/24", function(event) {
+			    $(this).text(
+			      event.strftime('%D days %H:%M:%S')
+			    );
+			  });
+         });
+		</script>
+	</head>
+	<body>
+		<!-- side bar -->
+		<div class="ui home_menu left inverted vertical menu sidebar">
+			<div class="ui three wide column">
+				<div>
+					<a href="index.html" class="item">
+						任務榜
+					</a>
+					<a href="add_task.html"class="add_task_link item">
+						委託任務
+					</a>
+					<div class="item">
+						任務狀態
+						<div class="menu">
+					      <a href="entrust_task.html" class="item active">委託任務
+					      </a>
+					      <a href="accept_task.html" class="item">承接任務
+					      	<div class="task_menu_message ui teal left pointing orange label">1</div>
+					      </a>
+					    </div>
+					</div>
+					<div class="item">
+						會員專區
+					 	<div class="menu">
+					      <a class="item">個人資料</a>
+					      <a class="item">個人評價</a>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- main content -->
+		<div class="pusher">
+			<i id='mbutton' class=" large yellow align justify icon"></i>
+			<div class="home ui stackable grid container">
+				<div class="ui two wide column"></div>
+				<div class="home_content ui twelve wide column">
+					<!--task table-->
+					<br>
+					<div class="ui form">
+						<label>時間範圍(委託時間)</label>
+						<div class="inline fields">
+	    					
+							<div class="field">
+		      					<input type="text" data-field="date" readonly>
+							</div>
+							<div class="field">
+		      					<input type="text" data-field="date" readonly>
+							</div>
+						</div>
+					</div>
+					<div id="dtBox"></div>			
+					<table class="ui celled table">
+						<thead>
+							<tr>
+								<th>任務名稱</th>
+								<th class="task_table_text">委託時間</th>
+								<th class="task_table_text">完成時間</th>
+								<th class="task_table_text">剩餘時間</th>
+								<th class="task_table_text">申請人數</th>
+								<th class="task_table_text">承接人</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="task_table_link task_table_tname"><a href="#">外帶50嵐</a></td>
+								<td class="task_table_text">2016/7/24 8:00</td>
+								<td class="task_table_text">2016/7/24 14:00</td>
+								<td class="task_table_text"><div id="getting-started"></div></td>
+								<td class="task_table_text">1</td>
+								<td class="task_table_text"><a class="task_accept_user"href="#">Jimmy Wang</a></td>
+							</tr>
+							
+						</tbody>
+					</table>
+					<!--task message-->		
+					<div class="task_table_link_content ui sidebar right vertical very wide menu">
+						<div class="task_table_link_inside">
+							<div class="ui stackable grid item">
+								<div class="ui nine wide column"><p "task_table_link_text">外帶50嵐</p></div>
+							</div>
+							
+							<div class="task_table_link_msg menu">
+								<h4 class="ui horizontal divider header">
+								  <i class="empty star icon"></i>
+								  任務資訊
+								</h4>
+								<div class="item">
+									<div class="ui stackable grid">
+										<div class="task_table_msg_text ui four wide column">地址:</div>
+										<div class="ui ten wide column">台中市中興大學理學大樓</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="ui stackable grid">
+										<div class="task_table_msg_text ui four wide column">電話:</div>
+										<div class="ui ten wide column">04-22997172</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="ui stackable grid">
+										<div class="task_table_msg_text ui four wide column">候選人數:</div>
+										<div class="ui ten wide column"> 1 人</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="ui stackable grid">
+										<div class="task_table_msg_text ui four wide column">結束時間:</div>
+										<div class="ui ten wide column"> 2016/7/24 14:00</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="ui stackable grid">
+										<div class="task_table_msg_text ui four wide column">失敗扣分:</div>
+										<div class="ui ten wide column"> 無</div>
+									</div>
+									
+								</div>
+								<div class="item">
+									補充訊息
+									<div class="task_table_msg_box">
+										外帶內容:<br>
+										紅茶-半糖少冰<br>
+										四季綠-少糖少冰<br>
+										珍奶-半糖半冰<br>
+										多多綠-微糖去冰<br>
+										<br>
+										報酬-免費請你喝一杯(任選)^^<br>
+									</div>
+								</div>
+								<div class="item task_table_link_btn ">
+									<button class="task_add_btn fluid ui red active button">取消任務</button>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+					<div class="ui modal">
+						<i class="close icon"></i>
+						<div class="header">
+							Alex
+						</div>
+						<div class="image content">
+							<div class="ui medium image">
+								<img src="img/21.jpg">
+							</div>
+							<div class="description">
+								<div class="ui header">Jimmy Wang的評價表</div>
+								<table class="task_table ui definition table">
+									<thead>
+										<tr>
+											<th class="task_table_text"><i class="star icon"></i></th>
+											<th class="task_table_text">一週之內</th>
+											<th class="task_table_text">一個月內</th>
+											<th class="task_table_text">半年之內</th>
+											<th class="task_table_text">全部紀錄</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="task_table_text">委託評價</td>
+											<td class="task_table_text">1</td>
+											<td class="task_table_text">0</td>
+											<td class="task_table_text">5</td>
+											<td class="task_table_text">6</td>
+										</tr>
+										<tr>
+											<td class="task_table_text">承接評價</td>
+											<td class="task_table_text">0</td>
+											<td class="task_table_text">0</td>
+											<td class="task_table_text">1</td>
+											<td class="task_table_text">1</td>
+										</tr>
+									</tbody>
+									<tfoot>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+						<div class="actions">
+							<div class="ui orange  right labeled icon button">
+								聊天室
+								<i class="comments icon"></i>
+							</div>
+						</div>
+					</div>
+				<div>
+			</div>
+		</div>
+	</body>
+</html>

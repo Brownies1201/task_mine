@@ -4,6 +4,15 @@ body{
 	height: 100vh;
 	font-family: 'Microsoft JhengHei'!important;
 }
+a{
+	color: #cc2900;
+}
+a:hover{
+	color: #cc2900;
+}
+table .task_table_text{
+	text-align: center!important;
+}
 .home{
 	padding: 0px;
 	height: 100vh!important;
@@ -26,12 +35,6 @@ body{
 	padding-left: 20px;
 	padding-right: 20px;
 	height: 100vh;
-}
-.task_table .task_table_text{
-	text-align: center!important;
-}
-.task_table a{
-	color: #cc2900;
 }
 .task_table_link_content{
 	padding: 10px;
@@ -78,4 +81,7 @@ button{
     left: 10px;
     z-index:20;
     cursor: pointer;
+}
+.star_rating_count{
+	padding-top: 10px!important;
 }
