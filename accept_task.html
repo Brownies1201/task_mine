@@ -17,6 +17,46 @@
 		<link rel="stylesheet" type="text/css" href="lib/DateTimePicker.css" />
 		<!--CSS-->
 		<link href='css/main.css' media='all' rel='stylesheet' type='text/css'/>
+		<style>
+			.web_table{
+				visibility: visible!important;
+				height: 0px!important;
+			}
+			.mobile_table{
+				visibility: hidden!important;
+				height: 0px!important;
+			}
+			@media only screen and (max-device-width: 480px) {
+				table thead{
+					visibility: hidden!important;
+					height: 0px!important;
+				}
+				
+				.web_table{
+					margin-top: -30px!important;
+					visibility: hidden!important;
+					height: 0px!important;
+				}
+				.mobile_table{
+					visibility: visible!important;
+					height: auto!important;
+				}
+				.description{
+					text-align: center!important;
+					font-family: 'Microsoft JhengHei'!important;
+				}
+				table .task_table_text{
+					text-align: left!important;
+				}
+				.task_web{
+					margin-top: -60vh!important;
+				}
+				.star_rating_btn{
+					float: right;
+				}
+
+			}
+		</style>
 		<!--Library Javascript-->
 		<script type="text/javascript" src="lib/jquery-1.11.0.min.js"></script>
 		<script type="text/javascript" src="lib/DateTimePicker.js"></script>
@@ -118,18 +158,17 @@
 					<br>
 					<div class="ui form">
 						<label>時間範圍(委託時間)</label>
-						<div class="inline fields">
-	    					
-							<div class="field">
+						<div class="field">
+							<div class="two fields">
 		      					<input type="text" data-field="date" readonly>
 							</div>
-							<div class="field">
+							<div class="two fields">
 		      					<input type="text" data-field="date" readonly>
 							</div>
 						</div>
 					</div>
 					<div id="dtBox"></div>			
-					<table class="ui celled table">
+					<table class="task_web web_table ui celled table">
 						<thead>
 							<tr>
 								<th>任務名稱</th>
@@ -159,6 +198,45 @@
 								<td class="task_table_text"><div id="getting-started2"></div></td>
 								<td class="task_table_text">1</td>
 								<td class="task_table_text"><a class="task_accept_user"href="#">春暖暖</a></td>
+								<td class="task_table_text star_rating_td">
+									<button class="star_rating_btn circular ui orange icon button">
+										<i class="icon star"></i>
+									</button>
+								</td>
+							</tr>
+							
+						</tbody>
+					</table>
+					<table class="task_mobile mobile_table ui celled table">
+						<thead>
+							<tr>
+								<th>任務名稱</th>
+								<th class="task_table_text">任務狀態</th>
+								<th class="task_table_text">剩餘時間</th>
+								<th class="task_table_text">申請人數</th>
+								<th class="task_table_text">委託人</th>
+								<th class="task_table_text">評價</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="task_table_link task_table_tname">任務名稱: <a href="#">外帶50嵐</a></td>
+								<td class="task_table_text">任務狀態: 申請中</td>
+								<td class="task_table_text">剩餘時間: <div id="getting-started"></div></td>
+								<td class="task_table_text">申請人數: 1</td>
+								<td class="task_table_text">委託人: <a class="task_accept_user"href="#">Alex</a></td>
+								<td class="task_table_text">
+									<button class="star_rating_btn circular ui orange icon button">
+										<i class="icon star"></i>
+										</button>
+								</td>
+							</tr>
+							<tr>
+								<td class="task_table_link task_table_tname">任務名稱: <a href="#">外帶午餐</a></td>
+								<td class="task_table_text task_statue">任務狀態: 執行中</td>
+								<td class="task_table_text">剩餘時間: <div id="getting-started2"></div></td>
+								<td class="task_table_text">申請人數: 1</td>
+								<td class="task_table_text">委託人: <a class="task_accept_user"href="#">春暖暖</a></td>
 								<td class="task_table_text star_rating_td">
 									<button class="star_rating_btn circular ui orange icon button">
 										<i class="icon star"></i>
@@ -241,7 +319,7 @@
 							</div>
 							<div class="description">
 								<div class="ui header">Alex的評價表</div>
-								<table class="task_table ui definition table">
+								<table class="task_table web_table ui definition table">
 									<thead>
 										<tr>
 											<th class="task_table_text"><i class="star icon"></i></th>
@@ -250,8 +328,8 @@
 											<th class="task_table_text">半年之內</th>
 											<th class="task_table_text">全部紀錄</th>
 										</tr>
-									</thead>
-									<tbody>
+									</thead> 
+									<tbody class="web_tbody">
 										<tr>
 											<td class="task_table_text">委託評價</td>
 											<td class="task_table_text">1</td>
@@ -267,8 +345,27 @@
 											<td class="task_table_text">2</td>
 										</tr>
 									</tbody>
-									<tfoot>
-									</tfoot>
+									
+								</table>
+								<table class="task_table mobile_table ui definition table">
+									<tbody class="mobile_tbody">
+										<tr>
+											<td class="task_table_text">委託評價<hr/></td>
+											<td class="task_table_text">一週之內: 1</td>
+											<td class="task_table_text">一個月內: 0</td>
+											<td class="task_table_text">半年之內: 5</td>
+											<td class="task_table_text">全部紀錄: 12</td>
+										</tr>
+
+										<tr>
+											<td class="task_table_text">承接評價<hr/</td>
+											<td class="task_table_text">一週之內: 0</td>
+											<td class="task_table_text">一個月內: 0</td>
+											<td class="task_table_text">半年之內: 2</td>
+											<td class="task_table_text">全部紀錄: 2</td>
+										</tr>
+									</tbody>
+									
 								</table>
 							</div>
 						</div>

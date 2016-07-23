@@ -85,3 +85,26 @@ button{
 .star_rating_count{
 	padding-top: 10px!important;
 }
+.web_table{
+		visibility: visible!important;
+		height: 0px!important;
+}
+.mobile_table{
+	visibility: hidden!important;
+	height: 0px!important;
+}
+@media only screen and (max-device-width: 480px) {
+	table thead{
+		visibility: hidden!important;
+		height: 0px!important;
+	}
+	.web_table tbody{
+		visibility: hidden!important;
+		height: 0px!important;
+	}
+	.mobile_table{
+		visibility: visible!important;
+		height: auto!important;
+	}
+
+}
