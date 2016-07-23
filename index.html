@@ -1,6 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+
 		<!--Library CSS-->
 		<link href='http://cdn.jsdelivr.net/semantic-ui/2.1.6/semantic.min.css' media='all' rel='stylesheet' type='text/css'/>
 		<!--Library Component CSS-->
@@ -15,27 +21,38 @@
 		<script src='lib/semantic/components/sidebar.min.js'></script>
 		<script src='lib/semantic/components/dropdown.min.js'></script>
 		<script language='javascript'>
-             $(document).ready(function(){
-                $('.home_menu .ui.sidebar').sidebar('toggle');
-				$('.ui.dropdown').dropdown();
-				$( ".task_table_link" ).click(function() {
-					$('.task_table_link_content').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
-				});
-				$( ".task_add_btn" ).click(function() {
-					console.log("test");
-					$( ".task_add_btn" ).removeClass( "orange" );
-					$( ".task_add_btn" ).addClass( "gray" );
-					$( ".task_add_btn" ).text( "申請中" );
-					$( ".task_menu_message" ).css( "visibility", "visible");
-				});
-             });
+         $(document).ready(function(){
+            // $('.home_menu .ui.sidebar').sidebar('toggle');
+			$('.ui.dropdown').dropdown();
+			$( ".task_table_link" ).click(function() {
+				$('.task_table_link_content').sidebar('setting', 'transition', 'overlay').sidebar('toggle');
+			});
+			$( ".task_add_btn" ).click(function() {
+				console.log("test");
+				$( ".task_add_btn" ).removeClass( "orange" );
+				$( ".task_add_btn" ).addClass( "gray" );
+				$( ".task_add_btn" ).text( "申請中" );
+				$( ".task_menu_message" ).css( "visibility", "visible");
+			});
 
-</script>
+			            $("#mbutton").on({
+			            	click: function(){
+				            	$('.ui.left.vertical.sidebar')
+				            	.sidebar('setting', 'transition', 'push')
+				            	.sidebar('toggle') ;
+				            }
+			            });
+
+         });
+
+
+		</script>
 	</head>
 	<body>
-		<div class="home ui stackable grid">
+		<!-- side bar -->
+		<div class="ui home_menu left inverted vertical menu sidebar">
 			<div class="ui three wide column">
-				<div class="home_menu ui visible inverted vertical pointing menu">
+				<div>
 					<a class="item active">
 						任務榜
 					</a>
@@ -61,189 +78,197 @@
 					</div>
 				</div>
 			</div>
-			<div class="home_content ui thirteen wide column">
-				
-				<div class="task_table_content">
-					<div class="task_table_link_content ui sidebar right vertical very wide menu">
-						<div class="task_table_link_inside">
-							<div class="ui stackable grid item">
-								<div class="ui nine wide column"><p "task_table_link_text">外帶50嵐</p></div>
-								<div class="ui six wide column">
-									<a class="task_table_link_user ui label">
-									  <img class="ui three spaced avatar image" src="img/29.jpg">
-									  Alex
-									</a>
-								</div>
-							</div>
-							
-							<div class="task_table_link_msg menu">
-								<h4 class="ui horizontal divider header">
-								  <i class="empty star icon"></i>
-								  任務資訊
-								</h4>
-								<div class="item">
-									<div class="ui stackable grid">
-										<div class="task_table_msg_text ui four wide column">地址:</div>
-										<div class="ui ten wide column">台中市中興大學理學大樓</div>
+		</div>
+
+		<!-- main content -->
+		<div class="pusher">
+			<i id='mbutton' class=" large yellow align justify icon"></i>
+			<div class="home ui stackable grid">
+		
+				<div class="home_content ui thirteen wide column">
+					
+					<div class="task_table_content">
+						<div class="task_table_link_content ui sidebar right vertical very wide menu">
+							<div class="task_table_link_inside">
+								<div class="ui stackable grid item">
+									<div class="ui nine wide column"><p "task_table_link_text">外帶50嵐</p></div>
+									<div class="ui six wide column">
+										<a class="task_table_link_user ui label">
+										  <img class="ui three spaced avatar image" src="img/29.jpg">
+										  Alex
+										</a>
 									</div>
 								</div>
-								<div class="item">
-									<div class="ui stackable grid">
-										<div class="task_table_msg_text ui four wide column">電話:</div>
-										<div class="ui ten wide column">04-22997172</div>
+								
+								<div class="task_table_link_msg menu">
+									<h4 class="ui horizontal divider header">
+									  <i class="empty star icon"></i>
+									  任務資訊
+									</h4>
+									<div class="item">
+										<div class="ui stackable grid">
+											<div class="task_table_msg_text ui four wide column">地址:</div>
+											<div class="ui ten wide column">台中市中興大學理學大樓</div>
+										</div>
 									</div>
-								</div>
-								<div class="item">
-									<div class="ui stackable grid">
-										<div class="task_table_msg_text ui four wide column">候選人數:</div>
-										<div class="ui ten wide column"> 1 人</div>
+									<div class="item">
+										<div class="ui stackable grid">
+											<div class="task_table_msg_text ui four wide column">電話:</div>
+											<div class="ui ten wide column">04-22997172</div>
+										</div>
 									</div>
-								</div>
-								<div class="item">
-									<div class="ui stackable grid">
-										<div class="task_table_msg_text ui four wide column">結束時間:</div>
-										<div class="ui ten wide column"> 2016/7/24 14:00</div>
+									<div class="item">
+										<div class="ui stackable grid">
+											<div class="task_table_msg_text ui four wide column">候選人數:</div>
+											<div class="ui ten wide column"> 1 人</div>
+										</div>
 									</div>
-								</div>
-								<div class="item">
-									<div class="ui stackable grid">
-										<div class="task_table_msg_text ui four wide column">失敗扣分:</div>
-										<div class="ui ten wide column"> 無</div>
+									<div class="item">
+										<div class="ui stackable grid">
+											<div class="task_table_msg_text ui four wide column">結束時間:</div>
+											<div class="ui ten wide column"> 2016/7/24 14:00</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="ui stackable grid">
+											<div class="task_table_msg_text ui four wide column">失敗扣分:</div>
+											<div class="ui ten wide column"> 無</div>
+										</div>
+										
+									</div>
+									<div class="item">
+										補充訊息
+										<div class="task_table_msg_box">
+											外帶內容:<br>
+											紅茶-半糖少冰<br>
+											四季綠-少糖少冰<br>
+											珍奶-半糖半冰<br>
+											多多綠-微糖去冰<br>
+											<br>
+											報酬-免費請你喝一杯(任選)^^<br>
+										</div>
+									</div>
+									<div class="item task_table_link_btn ">
+										<button class="task_add_btn fluid ui orange active button">申請任務</button>
 									</div>
 									
 								</div>
-								<div class="item">
-									補充訊息
-									<div class="task_table_msg_box">
-										外帶內容:<br>
-										紅茶-半糖少冰<br>
-										四季綠-少糖少冰<br>
-										珍奶-半糖半冰<br>
-										多多綠-微糖去冰<br>
-										<br>
-										報酬-免費請你喝一杯(任選)^^<br>
-									</div>
+							</div>
+						</div>
+						<div class="ui compact selection dropdown">
+							<i class="dropdown icon"></i>
+							<div class="text">類型</div>
+							<div class="menu">
+								<div class="item">全部</div>
+								<div class="item">外帶</div>
+								<div class="item">代購</div>
+								<div class="item">其他</div>
+							</div>
+						</div>
+						<div class="ui compact selection dropdown">
+							<i class="dropdown icon"></i>
+							<div class="text">排序</div>
+							<div class="menu">
+								<div class="item">新→舊</div>
+								<div class="item">舊→新</div>
+							</div>
+						</div>
+						<div class="ui compact selection dropdown">
+							<i class="dropdown icon"></i>
+							<div class="text">扣分</div>
+							<div class="menu">
+								<div class="item">全部</div>
+								<div class="item">有</div>
+								<div class="item">沒有</div>
+							</div>
+						</div>
+						<table class="task_table ui celled table">
+							<thead>
+								<tr>
+									<th>任務名稱</th>
+									<th>委託人</th>
+									<th class="task_table_text">候選人數</th>
+									<th class="task_table_text">結束時間</th>
+									<th class="task_table_text">失敗扣分</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td class="task_table_link"><a href="#">外帶50嵐</a></td>
+									<td class="task_table_link"><a href="#">Alex</a></td>
+									<td class="task_table_text">1</td>
+									<td class="task_table_text">2016/7/24 14:00</td>
+									<td class="task_table_text"><i class="remove icon"></i></td>
+								</tr>
+								<tr>
+									<td><a href="#">幫忙外帶午餐</a></td>
+									<td><a href="#">王曉明</a></td>
+									<td class="task_table_text">1</td>
+									<td class="task_table_text">2016/7/24 12:00</td>
+									<td class="task_table_text"><i class="remove icon"></i></td>
+								</tr>
+								<tr>
+									<td><a href="#">求幫買五月天門票</a></td>
+									<td><a href="#">五月天狂熱粉</a></td>
+									<td class="task_table_text">5</td>
+									<td class="task_table_text">2016/7/23 17:00</td>
+									<td class="task_table_text"><i class="checkmark icon"></i></td>
+								</tr>
+								<tr>
+									<td><a href="#">外送晚餐(阿宗麵線)</a></td>
+									<td><a href="#">yayahappy</a></td>
+									<td class="task_table_text">1</td>
+									<td class="task_table_text">2016/7/23 18:30</td>
+									<td class="task_table_text"><i class="check checkmark icon"></i></td>
+								</tr>
+								<tr>
+									<td><a href="#">代購日本化妝品</a></td>
+									<td><a href="#">水美美</a></td>
+									<td class="task_table_text">10</td>
+									<td class="task_table_text">2016/7/22 23:59</td>
+									<td class="task_table_text"><i class="checkmark icon"></i></td>
+								</tr>
+							</tbody>
+							<tfoot>
+							</tfoot>
+						</table>
+					</div>
+					<div class="task_add_content">
+						<div class="home ui stackable grid">
+							<div class="ui two wide column">
+							</div>
+							<div class="ui twelve wide column">
+								<div class="ui form">
+								  <div class="field">
+								    <label>*任務名稱</label>
+								    <input type="text" name="first-name" placeholder="外帶xxx">
+								  </div>
+								  <div class="field">
+								    <label>連絡地址</label>
+								    <input type="text" name="last-name" placeholder="台中市中興大學">
+								  </div>
+								  <div class="field">
+								    <label>連絡電話</label>
+								    <input type="text" name="last-name" placeholder="0956789101, 04-2233919">
+								  </div>
+								  <div class="field">
+								    <label>E-mail</label>
+								    <input type="text" name="last-name" placeholder="E-mail">
+								  </div>
+								  <div class="field">
+								    <label>補充資料</label>
+								    <textarea rows="4" placeholder="任務內容、報酬...等"></textarea>
+								  </div>
 								</div>
-								<div class="item task_table_link_btn ">
-									<button class="task_add_btn fluid ui orange active button">申請任務</button>
+								<br>
+								<button class="ui right floated orange button">委託任務</button>
 								</div>
-								
 							</div>
 						</div>
+						
 					</div>
-					<div class="ui compact selection dropdown">
-						<i class="dropdown icon"></i>
-						<div class="text">類型</div>
-						<div class="menu">
-							<div class="item">全部</div>
-							<div class="item">外帶</div>
-							<div class="item">代購</div>
-							<div class="item">其他</div>
-						</div>
-					</div>
-					<div class="ui compact selection dropdown">
-						<i class="dropdown icon"></i>
-						<div class="text">排序</div>
-						<div class="menu">
-							<div class="item">新→舊</div>
-							<div class="item">舊→新</div>
-						</div>
-					</div>
-					<div class="ui compact selection dropdown">
-						<i class="dropdown icon"></i>
-						<div class="text">扣分</div>
-						<div class="menu">
-							<div class="item">全部</div>
-							<div class="item">有</div>
-							<div class="item">沒有</div>
-						</div>
-					</div>
-					<table class="task_table ui celled table">
-						<thead>
-							<tr>
-								<th>任務名稱</th>
-								<th>委託人</th>
-								<th class="task_table_text">候選人數</th>
-								<th class="task_table_text">結束時間</th>
-								<th class="task_table_text">失敗扣分</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td class="task_table_link"><a href="#">外帶50嵐</a></td>
-								<td class="task_table_link"><a href="#">Alex</a></td>
-								<td class="task_table_text">1</td>
-								<td class="task_table_text">2016/7/24 14:00</td>
-								<td class="task_table_text"><i class="remove icon"></i></td>
-							</tr>
-							<tr>
-								<td><a href="#">幫忙外帶午餐</a></td>
-								<td><a href="#">王曉明</a></td>
-								<td class="task_table_text">1</td>
-								<td class="task_table_text">2016/7/24 12:00</td>
-								<td class="task_table_text"><i class="remove icon"></i></td>
-							</tr>
-							<tr>
-								<td><a href="#">求幫買五月天門票</a></td>
-								<td><a href="#">五月天狂熱粉</a></td>
-								<td class="task_table_text">5</td>
-								<td class="task_table_text">2016/7/23 17:00</td>
-								<td class="task_table_text"><i class="checkmark icon"></i></td>
-							</tr>
-							<tr>
-								<td><a href="#">外送晚餐(阿宗麵線)</a></td>
-								<td><a href="#">yayahappy</a></td>
-								<td class="task_table_text">1</td>
-								<td class="task_table_text">2016/7/23 18:30</td>
-								<td class="task_table_text"><i class="check checkmark icon"></i></td>
-							</tr>
-							<tr>
-								<td><a href="#">代購日本化妝品</a></td>
-								<td><a href="#">水美美</a></td>
-								<td class="task_table_text">10</td>
-								<td class="task_table_text">2016/7/22 23:59</td>
-								<td class="task_table_text"><i class="checkmark icon"></i></td>
-							</tr>
-						</tbody>
-						<tfoot>
-						</tfoot>
-					</table>
-				</div>
-				<div class="task_add_content">
-					<div class="home ui stackable grid">
-						<div class="ui two wide column">
-						</div>
-						<div class="ui twelve wide column">
-							<div class="ui form">
-							  <div class="field">
-							    <label>*任務名稱</label>
-							    <input type="text" name="first-name" placeholder="外帶xxx">
-							  </div>
-							  <div class="field">
-							    <label>連絡地址</label>
-							    <input type="text" name="last-name" placeholder="台中市中興大學">
-							  </div>
-							  <div class="field">
-							    <label>連絡電話</label>
-							    <input type="text" name="last-name" placeholder="0956789101, 04-2233919">
-							  </div>
-							  <div class="field">
-							    <label>E-mail</label>
-							    <input type="text" name="last-name" placeholder="E-mail">
-							  </div>
-							  <div class="field">
-							    <label>補充資料</label>
-							    <textarea rows="4" placeholder="任務內容、報酬...等"></textarea>
-							  </div>
-							</div>
-							<br>
-							<button class="ui right floated orange button">委託任務</button>
-							</div>
-						</div>
-					</div>
-					
-				</div>
-			<div>
+				<div>
+			</div>
 		</div>
 	</body>
 </html>
